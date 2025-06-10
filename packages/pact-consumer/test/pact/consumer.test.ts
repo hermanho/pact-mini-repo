@@ -57,7 +57,6 @@ describe("PUT Pact Consumer", () => {
       data: {
         message: "Hello, World!",
       },
-      httpAgent: new http.Agent({ keepAlive: false }),
     });
     expect(response.data).toEqual({
       message: "Updated. Hello, World!",
@@ -140,7 +139,6 @@ describe("PUT PactV3", () => {
         data: {
           message: "Hello, World!",
         },
-        httpAgent: new http.Agent({ keepAlive: false }),
       });
       expect(response.data).toEqual({
         message: "Updated. Hello, World!",
@@ -175,7 +173,6 @@ describe("PUT PactV3", () => {
         },
         url: "/hello",
         data: {},
-        httpAgent: new http.Agent({ keepAlive: false }),
       })).rejects.toThrow('Request failed with status code 400');
     });
   });
@@ -218,7 +215,6 @@ describe("PUT PactV4", () => {
         data: {
           message: "Hello, World!",
         },
-        httpAgent: new http.Agent({ keepAlive: false }),
       });
       expect(response.data).toEqual({
         message: "Updated. Hello, World!",
@@ -249,7 +245,6 @@ describe("PUT PactV4", () => {
         },
         url: "/hello",
         data: {},
-        httpAgent: new http.Agent({ keepAlive: false })
       })).rejects.toThrow('Request failed with status code 400');
     });
   });
