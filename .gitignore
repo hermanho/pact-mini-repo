@@ -1,0 +1,8 @@
+.DS_Store
+.idea
+.pnpm-store
+node_modules
+dist
+build
+.env
+*.js

@@ -1,0 +1,81 @@
+{
+  "consumer": {
+    "name": "PactV3 feat1 consumer"
+  },
+  "interactions": [
+    {
+      "description": "a request to update with body",
+      "providerStates": [
+        {
+          "name": "Hello API"
+        }
+      ],
+      "request": {
+        "body": {
+          "message": "Hello, World!"
+        },
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "method": "PUT",
+        "path": "/hello"
+      },
+      "response": {
+        "body": {
+          "message": "Updated. Hello, World!"
+        },
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "matchingRules": {
+          "body": {
+            "$.message": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            }
+          },
+          "status": {}
+        },
+        "status": 200
+      }
+    },
+    {
+      "description": "a request to update with empty body",
+      "providerStates": [
+        {
+          "name": "Hello API"
+        }
+      ],
+      "request": {
+        "body": {},
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "method": "PUT",
+        "path": "/hello"
+      },
+      "response": {
+        "status": 400
+      }
+    }
+  ],
+  "metadata": {
+    "pact-js": {
+      "version": "15.0.1"
+    },
+    "pactRust": {
+      "ffi": "0.4.22",
+      "models": "1.2.3"
+    },
+    "pactSpecification": {
+      "version": "3.0.0"
+    }
+  },
+  "provider": {
+    "name": "feat1 provider"
+  }
+}
