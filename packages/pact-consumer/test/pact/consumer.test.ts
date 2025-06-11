@@ -42,7 +42,7 @@ describe("PUT Pact Consumer", () => {
       willRespondWith: {
         status: 200,
         body: {
-          message: string("Updated. Hello, World!"),
+          data: string("Updated. Hello, World!"),
         }
       }
     });
@@ -59,7 +59,7 @@ describe("PUT Pact Consumer", () => {
       },
     });
     expect(response.data).toEqual({
-      message: "Updated. Hello, World!",
+      data: "Updated. Hello, World!",
     });
     expect(response.status).toBe(200);
   });
@@ -76,9 +76,7 @@ describe("PUT Pact Consumer", () => {
         {
           "Content-Type": "application/json",
         },
-        body: {
-
-        }
+        body: {}
       },
       willRespondWith: {
         status: 400,
@@ -123,7 +121,7 @@ describe("PUT PactV3", () => {
       willRespondWith: {
         status: 200,
         body: {
-          message: string("Updated. Hello, World!"),
+          data: string("Updated. Hello, World!"),
         }
       }
     });
@@ -141,7 +139,7 @@ describe("PUT PactV3", () => {
         },
       });
       expect(response.data).toEqual({
-        message: "Updated. Hello, World!",
+        data: "Updated. Hello, World!",
       });
       expect(response.status).toBe(200);
     });
@@ -200,7 +198,7 @@ describe("PUT PactV4", () => {
       })
       .willRespondWith(200, (builder) => {
         builder.jsonBody({
-          message: string("Updated. Hello, World!"),
+          data: string("Updated. Hello, World!"),
         });
       });
 
@@ -217,7 +215,7 @@ describe("PUT PactV4", () => {
         },
       });
       expect(response.data).toEqual({
-        message: "Updated. Hello, World!",
+        data: "Updated. Hello, World!",
       });
       expect(response.status).toBe(200);
     });

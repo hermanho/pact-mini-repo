@@ -1,6 +1,7 @@
 import { Body, Controller, Get, Put } from '@nestjs/common';
 import { AppService } from '../app.service';
 import { HelloRequestBodyDto } from 'src/dtos/request-body.dto';
+import { HelloResponseBodyInterface } from 'src/types/response-body';
 
 @Controller('hello')
 export class AppController {
@@ -12,7 +13,7 @@ export class AppController {
   }
 
   @Put()
-  updateHello(@Body() body: HelloRequestBodyDto): string {
-    return 'Updated. ' + body.message;
+  updateHello(@Body() body: HelloRequestBodyDto): HelloResponseBodyInterface {
+    return { data: 'Updated. ' + body.message };
   }
 }
